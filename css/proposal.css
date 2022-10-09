@@ -1,0 +1,9 @@
+body {
+  background-color:cornsilk;
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  text-align: center;
+}
+
+h1, p {
+  color:blueviolet;
+}
