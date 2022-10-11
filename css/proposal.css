@@ -7,3 +7,13 @@ body {
 h1, p {
   color:blueviolet;
 }
+
+p {
+  border: solid;
+  border-color: black;
+  border-width: 1px;
+}
+
+a {
+  color: blue;
+}
