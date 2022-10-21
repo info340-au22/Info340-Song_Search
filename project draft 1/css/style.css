@@ -1,0 +1,164 @@
+html {
+    height: 100%;
+}
+
+nav a {
+    display: block;
+    padding: 1rem;
+    text-align: center;
+    background-color: rgb(39, 39, 39);
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    display: block;
+}
+
+nav .icon {
+    background: rgb(135, 207, 231);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.pageLinks {
+    display: none;
+}
+
+
+
+header {
+    text-align: center;
+    font-size: 2rem;
+    height: max-content;
+    color: white;
+    background-image: url("../img/PianoBackground.jpg");
+    padding: 2rem;
+    padding-bottom: 4rem;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+h3{
+    font-size: 1rem;
+    font-weight: lighter;
+}
+
+body {
+    background-color: rgb(201, 224, 231);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card {
+    flex: 0 0 auto;
+    background-color: beige;
+    padding-bottom: 1em;
+    margin: 1em;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);
+}
+
+.contents h3{
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.card .recommend{
+    padding-left: 2rem;
+    display: block;
+    text-align: center;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    
+}
+
+.search {
+    flex-basis: auto;
+
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);
+    position: relative;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown-content a:hover {
+    background-color: lightgray
+}
+
+.artist {
+    flex-basis: auto;
+}
+
+
+
+footer {
+    bottom: 0;
+    margin-top : 3rem;
+    padding-bottom: 3rem;
+    padding-top: 0.5em;
+    background-color: brown;
+    font-size: 2rem;
+    color: white;
+}
+
+
+@media (min-width: 992px) {
+
+    
+    header {
+        background-image: none;
+    }
+
+    nav .icon {
+        display: none;
+    }
+
+    nav .title {
+        display: none;
+    }
+
+    .pageLinks {
+        display: flex;
+        justify-content: space-between;
+        background-color: rgb(39, 39, 39);
+    }
+
+    body {
+        background-color: antiquewhite;
+        background-image: url("../img/musicBackground.jpg");
+        background-position: center;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .card {
+        flex: 1 1 auto;
+        background-color: beige;
+        padding-bottom: 1em;
+        margin: 1em;
+        border-radius: 10px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);
+    }
+}
