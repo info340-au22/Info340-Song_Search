@@ -29,9 +29,14 @@ nav ul {
 }
 
 nav li {
+  margin: 0;
   display: inline;
   padding: 1rem;
-  color: rgb(39, 39, 39);
+  transition: border 0.25s ease-out;
+}
+
+nav li:hover, nav li:active, nav li:focus {
+  border-bottom: 10px solid #39b6ff;
 }
 
 nav a {
@@ -40,6 +45,10 @@ nav a {
   transition: color 0.25s ease-in;
 }
 
-nav a:hover, nav a:active, nav a:focus {
+nav li:hover > a, nav li:active > a, nav li:focus > a {
   color: #39b6ff;
+}
+
+header {
+  padding-top: 3rem;
 }
