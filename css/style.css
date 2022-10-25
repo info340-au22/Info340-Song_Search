@@ -24,8 +24,6 @@ nav .icon {
     display: none;
 }
 
-
-
 header {
     text-align: center;
     font-size: 2rem;
@@ -48,7 +46,8 @@ h3{
 }
 
 body {
-    background-color: rgb(201, 224, 231);
+    background-color: lightblue;
+    background-size: auto;
 }
 
 .container {
@@ -80,7 +79,6 @@ body {
     
 }
 
-
 .dropdown {
     position: relative;
     display: inline-block;
@@ -100,6 +98,9 @@ body {
     background-color: lightgray
 }
 
+.recommend li:hover {
+    color: blue;
+}
 
 .artist {
     display: flex;
@@ -121,19 +122,18 @@ body {
     display: none;
 }
 
-
-
-
 footer {
+    position: relative;
     bottom: 0;
+    width: 100%;
     margin-top : 3rem;
-    padding-bottom: 3rem;
     padding-top: 0.5em;
+    padding-bottom: 1rem;
     background-color: brown;
-    font-size: 2rem;
+    font-size: 1rem;
+    text-align: center;
     color: white;
 }
-
 
 @media (min-width: 992px) {
 
@@ -175,13 +175,14 @@ footer {
         padding-bottom: 1em;
         margin: 1em;
         border-radius: 10px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);
+        box-shadow: 10px 8px 3px black;
     }
 
-    .sub-btn {
-        position: relative;
-        bottom: auto;
+    .recommend li {
+        overflow-wrap: break-word;
     }
+
+    
 
     .art-contents img{
         display: block;
