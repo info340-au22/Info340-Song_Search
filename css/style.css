@@ -198,6 +198,10 @@ footer {
     vertical-align: middle;
 }
 
+.footer-login {
+    position: absolute;
+}
+
 @media (min-width: 992px) {
 
     .material-icons {
