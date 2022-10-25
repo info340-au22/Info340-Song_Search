@@ -18,9 +18,10 @@ html {
 
 .burger .icon {
     background: rgb(135, 207, 231);
-    position: absolute;
-    left: 0;
+    position: fixed;
     top: 0;
+    left: 0;
+    height: 56px;
 }
 
 .pagelinks {
@@ -137,6 +138,10 @@ footer {
 
 @media (min-width: 992px) {
 
+    .material-icons {
+        position: relative;
+        top: 5px;
+    }
 
     header {
         margin-top: 5rem;
@@ -164,10 +169,7 @@ footer {
         padding: 0;
     }
 
-    .material-icons {
-        position: relative;
-        top: 5px;
-    }
+
 
     nav li {
         margin: 0;
