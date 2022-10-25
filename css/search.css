@@ -51,16 +51,13 @@ main .container {
 
   nav .pagelinks {
     display: block;
+    margin: 0;
+    padding: 0;
   }
 
   .material-icons {
     position: relative;
     top: 5px;
-  }
-
-  nav ul {
-    margin: 0;
-    padding: 0;
   }
 
   nav li {

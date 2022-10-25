@@ -2,7 +2,7 @@ html {
     height: 100%;
 }
 
-nav a {
+.burger a {
     display: block;
     padding: 1rem;
     text-align: center;
@@ -10,21 +10,18 @@ nav a {
     color: white;
     text-decoration: none;
     font-size: 1rem;
-    display: block;
 }
 
-nav .icon {
+.burger .icon {
     background: rgb(135, 207, 231);
     position: absolute;
     left: 0;
     top: 0;
 }
 
-.pageLinks {
+.pagelinks {
     display: none;
 }
-
-
 
 header {
     text-align: center;
@@ -77,9 +74,8 @@ body {
     text-align: center;
     padding-bottom: 0;
     margin-bottom: 0;
-    
-}
 
+}
 
 .dropdown {
     position: relative;
@@ -137,23 +133,57 @@ footer {
 
 @media (min-width: 992px) {
 
-    
+
     header {
+        margin-top: 5rem;
         background-image: none;
     }
 
-    nav .icon {
-        display: none;
-    }
-
-    nav .title {
-        display: none;
-    }
-
-    .pageLinks {
-        display: flex;
-        justify-content: space-between;
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
         background-color: rgb(39, 39, 39);
+        color: white;
+        padding-bottom: 1rem;
+        padding-top: 0.5rem;
+      }
+
+    nav .burger {
+        display: none;
+    }
+
+    nav .pagelinks {
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+
+    .material-icons {
+        position: relative;
+        top: 5px;
+    }
+
+    nav li {
+        margin: 0;
+        display: inline;
+        padding: 1rem;
+        transition: border 0.25s ease-out;
+    }
+
+    nav li:hover, nav li:active, nav li:focus {
+        border-bottom: 10px solid #39b6ff;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: white;
+        transition: color 0.25s ease-in;
+    }
+
+    nav li:hover > a, nav li:active > a, nav li:focus > a {
+        color: #39b6ff;
     }
 
     body {
@@ -194,7 +224,6 @@ footer {
         display: unset;
         text-decoration: none;
     }
-
 
     footer {
         position: relative;
