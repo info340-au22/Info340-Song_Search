@@ -32,6 +32,7 @@ header {
     height: max-content;
     color: white;
     background-image: url("../img/PianoBackground.jpg");
+    background-size: cover;
     padding: 2rem;
     padding-bottom: 4rem;
 }
@@ -58,7 +59,7 @@ body {
 
 .card {
     flex: 0 0 auto;
-    background-color: beige;
+    background-color: white;
     padding-bottom: 1em;
     margin: 1em;
     border-radius: 10px;
@@ -79,10 +80,6 @@ body {
     
 }
 
-.search {
-    flex-basis: auto;
-
-}
 
 .dropdown {
     position: relative;
@@ -103,9 +100,27 @@ body {
     background-color: lightgray
 }
 
+
 .artist {
-    flex-basis: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
+
+.artist .art-button {
+    justify-content: center;
+    display: flex;
+}
+
+.art-contents {
+    text-align: center;
+
+}
+
+.art-contents img, .img-cite {
+    display: none;
+}
+
 
 
 
@@ -144,6 +159,7 @@ footer {
     body {
         background-color: antiquewhite;
         background-image: url("../img/musicBackground.jpg");
+        background-size: cover;
         background-position: center;
     }
 
@@ -154,11 +170,41 @@ footer {
     }
 
     .card {
-        flex: 1 1 auto;
-        background-color: beige;
+        flex-grow: 1;
+        background-color: white;
         padding-bottom: 1em;
         margin: 1em;
         border-radius: 10px;
         box-shadow: 0 1px 3px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);
+    }
+
+    .sub-btn {
+        position: relative;
+        bottom: auto;
+    }
+
+    .art-contents img{
+        display: block;
+        max-height: 150px;
+        width: 100%;
+        margin: 0;
+    }
+
+    .img-cite {
+        display: unset;
+        text-decoration: none;
+    }
+
+
+    footer {
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        margin-top : 3rem;
+        padding-top: 0.5em;
+        background-color: brown;
+        font-size: 1rem;
+        text-align: center;
+        color: white;
     }
 }
