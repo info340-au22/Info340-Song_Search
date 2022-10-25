@@ -2,8 +2,8 @@
     box-sizing: border-box;
 }
 
-html {
-    height: 100%;
+body {
+    font-family: 'Poppins', Helvetica, sans-serif;
 }
 
 .burger a {
@@ -126,7 +126,7 @@ body {
 }
 
 footer {
-    position: relative;
+    position: fixed;
     bottom: 0;
     width: 100%;
     margin-top : 3rem;
@@ -179,7 +179,7 @@ footer {
 .btn-login {
     width: 100%;
     color: white;
-    background-color: #A020F0;
+    background-color: #1985ff;
     font-weight: 600;
     margin: 15px 0;
     height: 45px;
@@ -192,17 +192,17 @@ footer {
 }
 
 .btn-new {
-    background-color: green;
-    color: white; 
+    background-color: #1985ff;
+    color: white;
     padding: 0 25px;
     vertical-align: middle;
 }
 
-.footer-login {
-    position: absolute;
-}
-
 @media (min-width: 992px) {
+
+    main {
+        margin-top: 4rem;
+    }
 
     .material-icons {
         position: relative;
@@ -284,7 +284,7 @@ footer {
         overflow-wrap: break-word;
     }
 
-    
+
 
     .art-contents img{
         display: block;
