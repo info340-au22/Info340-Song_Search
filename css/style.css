@@ -18,7 +18,7 @@ body {
 
 .burger .icon {
     background: rgb(135, 207, 231);
-    position: fixed;
+
     top: 0;
     left: 0;
     height: 56px;
@@ -35,8 +35,15 @@ header {
     color: white;
     background-image: url("../img/PianoBackground.jpg");
     background-size: cover;
-    padding: 2rem;
     padding-bottom: 4rem;
+}
+
+nav {
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(39, 39, 39);
+    color: white;
 }
 
 h1 {
@@ -126,7 +133,6 @@ body {
 }
 
 footer {
-    position: fixed;
     bottom: 0;
     width: 100%;
     margin-top : 3rem;
@@ -210,19 +216,18 @@ footer {
     }
 
     header {
-        margin-top: 5rem;
         background-image: none;
     }
 
     nav {
-        position: fixed;
+
         top: 0;
         left: 0;
         width: 100%;
         background-color: rgb(39, 39, 39);
         color: white;
         padding-bottom: 1rem;
-        padding-top: 0.5rem;
+
     }
 
     nav .burger {
@@ -299,7 +304,6 @@ footer {
     }
 
     footer {
-        position: fixed;
         bottom: 0;
         left: 0;
         width: 100%;
