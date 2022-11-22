@@ -146,6 +146,11 @@ footer {
     color: white;
 }
 
+.body-login footer {
+    position: fixed;
+    padding-bottom: 5rem;
+}
+
 /* Login CSS*/
 
 .container-login {
