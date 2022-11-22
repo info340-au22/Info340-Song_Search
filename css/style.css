@@ -18,7 +18,7 @@ body {
 
 .burger .icon {
     background: rgb(135, 207, 231);
-
+    position : absolute;
     top: 0;
     left: 0;
     height: 56px;
@@ -47,9 +47,11 @@ nav {
 }
 
 h1 {
+    padding-top: 2rem;
     font-weight: bold;
     font-size: 2rem;
 }
+
 
 h3{
     font-size: 1rem;
