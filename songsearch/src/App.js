@@ -4,20 +4,22 @@ import {Header} from './Header.js'
 import { HomePage } from './HomePage.js';
 import {Footer} from './Footer.js'
 import { Login } from './Login.js'
+import { NewlyUploaded } from './NewlyUploaded.js';
 
 
 export default function App(props) {
 
-  const currentPage = "HomePage"
+  const currentPage = "NewlyUploaded"
   return (
 
     <div className="SongSearch">
       
       <Header currentPage={currentPage}/>
       
-      <HomePage/>
+      {/* <HomePage/> */}
 
       {/* <Login /> */}
+      <NewlyUploaded />
 
       <Footer />
     </div>

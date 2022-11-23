@@ -4,12 +4,6 @@
 
 body {
   font-family: 'Poppins', Helvetica, sans-serif;
-  background-color: lightblue;
-  background-size: auto;
-}
-
-.SongSearch {
-  background-color: lightblue;
 }
 
 .burger a {
@@ -41,13 +35,7 @@ header {
   color: white;
   background-image: url("../img/PianoBackground.jpg");
   background-size: cover;
-  padding-bottom: 4rem;
-}
-
-.headerText {
-  text-align: center;
-  font-size: 2rem;
-  color: white;
+  padding-bottom: 2rem;
 }
 
 nav {
@@ -64,11 +52,30 @@ h1 {
   font-size: 2rem;
 }
 
+table {
+  background-color: #1a0045;
+  border-collapse:separate;
+  border-radius:6px;
+}
+
+tr {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  color: white;
+  border-color: black;
+  border-top:solid 2px;
+  border-left:solid 2px;
+}
 
 
 h3{
   font-size: 1rem;
   font-weight: lighter;
+}
+
+body {
+  background-color: lightblue;
+  background-size: auto;
 }
 
 .container {
@@ -220,10 +227,6 @@ footer {
 }
 
 @media (min-width: 992px) {
-
-  .SongSearch {
-    background-color: transparent;
-  }
 
   main {
       margin-top: 4rem;
