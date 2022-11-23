@@ -3,7 +3,7 @@ import React from 'react';
 export function HomePage(Props) {
     return(
         <main className='container'> 
-        <section className="re  commend card">
+        <section className="recommend card">
                     <div className="contents" id="topsongs">
                         <h3> Top Songs of the day </h3>
 
@@ -16,7 +16,7 @@ export function HomePage(Props) {
                             <li className="list-group-item bg-transparent">Mother - Charlie Puth</li>
                             <li className="list-group-item bg-transparent">Higher Lover - Kygo</li>
                             <div className="text-center">
-                                <a href="search.html"><input class="btn btn-dark my-3" type="submit" value="Browse More..." /></a>
+                                <a href="search.html"><input className="btn btn-dark my-3" type="submit" value="Browse More..." /></a>
                             </div>
                         </ol>
                     </div>
@@ -29,8 +29,8 @@ export function HomePage(Props) {
                     </div>
 
                     <div className="px-1 py-3">
-                        <select className="form-select" aria-label="Default select">
-                            <option selected> Genre </option>
+                        <select className="form-select" aria-label="Default select" placeholder='Genre'>
+                            <option selected disabled> Genre </option>
                             <option value="1"> Hip-Hop/Rap </option>
                             <option value="2"> EDM </option>
                             <option value="3"> Country </option>
@@ -42,7 +42,7 @@ export function HomePage(Props) {
                     
                     <div className="px-1 py-3">
                         <select className="form-select" aria-label="Default select">
-                            <option selected> Energy Level? </option>
+                            <option selected disabled> Energy Level? </option>
                             <option value="1"> Low </option>
                             <option value="2"> Medium </option>
                             <option value="3"> High</option>
@@ -51,7 +51,7 @@ export function HomePage(Props) {
 
                     <div className="px-1 py-3">
                         <select className="form-select" aria-label="Default select">
-                            <option selected> Duration? </option>
+                            <option selected disabled> Duration? </option>
                             <option value="1"> Short(&gt;3mins) </option>
                             <option value="2"> Medium (Between 3 and 5) </option>
                             <option value="3"> Long(&gt;5mins) </option>

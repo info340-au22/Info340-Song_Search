@@ -4,6 +4,12 @@
 
 body {
   font-family: 'Poppins', Helvetica, sans-serif;
+  background-color: lightblue;
+  background-size: auto;
+}
+
+.SongSearch {
+  background-color: lightblue;
 }
 
 .burger a {
@@ -53,14 +59,10 @@ h1 {
 }
 
 
+
 h3{
   font-size: 1rem;
   font-weight: lighter;
-}
-
-body {
-  background-color: lightblue;
-  background-size: auto;
 }
 
 .container {
@@ -212,6 +214,10 @@ footer {
 }
 
 @media (min-width: 992px) {
+
+  .SongSearch {
+    background-color: transparent;
+  }
 
   main {
       margin-top: 4rem;
