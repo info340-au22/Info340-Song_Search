@@ -2,8 +2,17 @@
   box-sizing: border-box;
 }
 
+.SongSearch {
+  background-color: lightblue;
+}
+
 body {
   font-family: 'Poppins', Helvetica, sans-serif;
+}
+
+main {
+  margin-top: 4rem;
+  padding-bottom: 2rem;
 }
 
 .burger a {
@@ -52,6 +61,10 @@ h1 {
   font-size: 2rem;
 }
 
+form {
+  padding-bottom: 2rem;
+}
+
 table {
   background-color: #1a0045;
   border-collapse:separate;
@@ -66,7 +79,6 @@ tr {
   border-top:solid 2px;
   border-left:solid 2px;
 }
-
 
 h3{
   font-size: 1rem;
@@ -226,11 +238,22 @@ footer {
   vertical-align: middle;
 }
 
+@media (max-width: 992px) {
+  .OptionalColumn{
+    display: none;
+  }
+}
+
 @media (min-width: 992px) {
+
+  .SongSearch {
+    background-color: transparent;
+  }
 
   main {
       margin-top: 4rem;
   }
+
 
   .material-icons {
       position: relative;
@@ -239,6 +262,7 @@ footer {
 
   header {
       background-image: none;
+
   }
 
   nav {
