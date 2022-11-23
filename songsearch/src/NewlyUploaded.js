@@ -4,7 +4,7 @@ import _ from 'lodash';
 
 const EXAMPLE_DATA = [
     { track_name: "Never Really Over - R3HAB Remix", track_artist: "Katy Perry", genre: "Pop", uploadDate: "10/14/2022", spotifyLink: "https://open.spotify.com/track/2OAylPUDDfwRGfe0lYqlCQ" },
-    { track_name: "bad guy (with Justin Bieber)", track_artist: "Billie Elish", genre: "pop", uploadDate: "09/30/2022", spotifyLink: "https://open.spotify.com/track/3yNZ5r3LKfdmjoS3gkhUCT" },
+    { track_name: "Bad guy (with Justin Bieber)", track_artist: "Billie Elish", genre: "pop", uploadDate: "09/30/2022", spotifyLink: "https://open.spotify.com/track/3yNZ5r3LKfdmjoS3gkhUCT" },
     { track_name: "Civil War", track_artist: "Guns N' Roses", genre: "Rock", uploadDate: "09/27/2022", spotifyLink: "https://open.spotify.com/track/0EHzXpyi1swR8sMpbVHcLJ" },
     { track_name: "Gone - The Wild Remix", track_artist: "Charli XCX", genre: "pop", uploadDate: "09/25/2022", spotifyLink: "https://open.spotify.com/track/79zGYOcAe2VmJsyQiJX31a" },
     { track_name: "Silverskin", track_artist: "Sam Feldt", genre: "Latin", uploadDate: "09/20/2022", spotifyLink: "https://open.spotify.com/track/2DMqiPZ8uLE2AtwHLInHOI" },
@@ -18,8 +18,14 @@ const EXAMPLE_DATA = [
 
 export function NewlyUploaded(props) {
     const [sortByCriteria, sortColumnData] = useState(null);
+    const [ascending, setAscending] = useState(null);
 
-    let sortedData = _.sortBy(EXAMPLE_DATA , [sortByCriteria])
+    let sortedData = _.sortBy(EXAMPLE_DATA , [sortByCriteria]);
+    if (sortByCriteria != null && ascending != true) {
+        sortedData = _.reverse(sortedData);
+    }
+
+
 
     const displaySongs = sortedData.map((song) => {
         return(
@@ -34,13 +40,17 @@ export function NewlyUploaded(props) {
     })
 
     const handleClick = (event) => { 
-        console.log(event.currentTarget.name);
         if (event.currentTarget.name !== sortByCriteria) {
             sortColumnData(event.currentTarget.name);
-            
-        } else {
-            sortColumnData(null);
-        }
+            setAscending(true);
+          } else {
+            if (ascending === true) {
+              setAscending(false);
+            } else {
+              setAscending(null);
+              sortColumnData(null);
+            }
+          }
     }
 
 
@@ -52,19 +62,19 @@ export function NewlyUploaded(props) {
                         <tr>
                             <th>
                                 Song Name
-                                <SortButton name="track_name" onClick={handleClick} active={sortByCriteria}/>
+                                <SortButton name="track_name" onClick={handleClick} active={sortByCriteria} ascending={ascending}/>
                             </th>
                             <th>
                                 Artist
-                                <SortButton name="track_artist" onClick={handleClick} active={sortByCriteria}/>
+                                <SortButton name="track_artist" onClick={handleClick} active={sortByCriteria} ascending={ascending}/>
                             </th>
                             <th className='OptionalColumn'>
                                 Genre
-                                <SortButton name="genre" onClick={handleClick} active={sortByCriteria}/>
+                                <SortButton name="genre" onClick={handleClick} active={sortByCriteria} ascending={ascending}/>
                             </th>
                             <th className='OptionalColumn'>
                                 Date Added
-                                <SortButton name="uploadDate" onClick={handleClick} active={sortByCriteria}/>
+                                <SortButton name="uploadDate" onClick={handleClick} active={sortByCriteria} ascending={ascending}/>
                             </th>
                             <th className='py-3'>Spotify Link</th>
                         </tr>
@@ -83,7 +93,12 @@ export function NewlyUploaded(props) {
 
 function SortButton(props) {
     let classList = "material-icons text-light"
-    if (props.active === props.name) { classList = "material-icons active text-light"}
+    if (props.active === props.name) { 
+        classList += " active"
+    }
+    if (props.ascending) {
+        classList += " flip"
+    }
   
     return (
       <button className="btn btn-sm btn-sort" name={props.name} onClick={props.onClick}>
