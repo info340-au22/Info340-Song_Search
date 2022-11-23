@@ -4,6 +4,7 @@ import {Header} from './Header.js'
 import { HomePage } from './HomePage.js';
 import {Footer} from './Footer.js'
 import { Login } from './Login.js'
+import { Search } from './Search.js';
 import { NewlyUploaded } from './NewlyUploaded.js';
 
 
@@ -13,9 +14,9 @@ export default function App(props) {
   return (
 
     <div className="SongSearch">
-      
+
       <Header currentPage={currentPage}/>
-      
+
       {/* <HomePage/> */}
 
       {/* <Login /> */}

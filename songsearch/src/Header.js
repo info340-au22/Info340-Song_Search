@@ -16,15 +16,15 @@ export function Header(props) {
   }
 
   return(
-    <header>    
-        <nav>   
+    <header>
+        <nav>
             <div className="burger">
               <a href="#" className="icon"><span className="material-icons">menu</span></a>
               <a href="index.html" className="title"> Song Search </a>
             </div>
 
-            <ul class="pagelinks">
-              <li><a href="index.html"><span class="material-icons" aria-label="Home">music_note</span></a></li>
+            <ul className="pagelinks">
+              <li><a href="index.html"><span className="material-icons" aria-label="Home">music_note</span></a></li>
               <li><a href="browse.html">Newly Uploaded</a></li>
               <li><a href="upload.html">Upload your Music</a></li>
               <li><a href="search.html">Search</a></li>

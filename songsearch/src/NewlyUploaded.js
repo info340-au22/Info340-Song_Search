@@ -14,9 +14,8 @@ const EXAMPLE_DATA = [
 ]
 
 const displaySongs = EXAMPLE_DATA.map((song) => {
-    
     return(
-        <tr>
+        <tr key={song.spotifyLink}>
             <td> {song.track_name} </td>
             <td> {song.track_artist} </td>
             <td> {song.genre} </td>
@@ -29,8 +28,8 @@ const displaySongs = EXAMPLE_DATA.map((song) => {
 export function NewlyUploaded(props) {
     return (
         <main >
-            <div class="container">
-                <table class="table">
+            <div className="container">
+                <table className="table">
                     <thead>
                         <tr>
                             <th>Song Name<span className={"material-icons"}>sort</span></th>
