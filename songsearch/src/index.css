@@ -44,6 +44,12 @@ header {
   padding-bottom: 4rem;
 }
 
+.headerText {
+  text-align: center;
+  font-size: 2rem;
+  color: white;
+}
+
 nav {
   top: 0;
   left: 0;

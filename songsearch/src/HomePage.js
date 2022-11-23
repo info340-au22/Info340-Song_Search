@@ -2,8 +2,10 @@ import React from 'react';
 
 
 export function HomePage(props) {
-    
+
     return(
+
+
         <main className='container'> 
         <section className="recommend card">
                     <div className="contents" id="topsongs">
@@ -82,5 +84,6 @@ export function HomePage(props) {
                     
                 </section>
       </main>
+
     )
 }

@@ -7,11 +7,13 @@ import { Login } from './Login.js'
 
 
 export default function App(props) {
+
+  const currentPage = "HomePage"
   return (
 
     <div className="SongSearch">
       
-      <Header />
+      <Header currentPage={currentPage}/>
       
       <HomePage/>
 
