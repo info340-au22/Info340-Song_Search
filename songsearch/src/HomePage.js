@@ -1,7 +1,8 @@
 import React from 'react';
-import logo from 'DJBoard.jpg';
 
-export function HomePage(Props) {
+
+export function HomePage(props) {
+    
     return(
         <main className='container'> 
         <section className="recommend card">
@@ -69,7 +70,7 @@ export function HomePage(Props) {
 
                         <p> Sign-in or make an account to</p>
                         <p> reach whole new audiences!  </p>
-                        <img src={logo} alt="A picutre of a DJ board" />
+                        <img src="/img/DJBoard.jpg" alt="A picutre of a DJ board" />
                         <p className="img-cite"><cite><a href="https://unsplash.com/photos/YrtFlrLo2DQ"> Marcela Laskoski </a></cite></p>
 
 
