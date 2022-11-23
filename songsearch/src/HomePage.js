@@ -3,7 +3,7 @@ import React from 'react';
 export function HomePage(Props) {
     return(
         <main className='container'> 
-        <section className="re  commend card">
+        <section className="recommend card">
                     <div className="contents" id="topsongs">
                         <h3> Top Songs of the day </h3>
 
