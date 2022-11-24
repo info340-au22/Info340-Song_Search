@@ -59,6 +59,7 @@ export function HomePage(props) {
                             <option value="1"> Short(&gt;3mins) </option>
                             <option value="2"> Medium (Between 3 and 5) </option>
                             <option value="3"> Long(&gt;5mins) </option>
+                            <img src="/img/musicNote.png" alt="A picture of a music note" />
                         </select>
                     </div>
 
