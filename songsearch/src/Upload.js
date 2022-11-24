@@ -5,11 +5,11 @@ export function Upload(props) {
         <main>
             <div className="ms-5">
                 <form>
-                    <label className = "text-light" for="fname">Artist:</label>
+                    <label className = "text-light px-1 py-1" for="fname">Artist: </label>
                     <input type="text" id="fname" name="fname" /><br></br>
-                    <label className = "text-light" for="lname">Song:</label>
+                    <label className = "text-light px-1 py-1" for="lname">Song: </label>
                     <input type="text" id="lname" name="lname" /><br></br>
-                    <label className = "text-light" for="lname">Album:</label>
+                    <label className = "text-light px-1 py-1" for="lname">Album: </label>
                     <input type="text" id="lname" name="lname" /><br></br>
                     <p className = "text-light" >Please select the genre of your work. If none of the below applies, select "Others".</p>
                     <input type="checkbox" id="genre1" name="genre1" />

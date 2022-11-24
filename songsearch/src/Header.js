@@ -19,7 +19,7 @@ export function Header(props) {
     <header>
         <nav>
             <div className="burger">
-              <a href="#" className="icon"><span className="material-icons">menu</span></a>
+              <a href="" className="icon"><span className="material-icons">menu</span></a>
               <a href="index.html" className="title"> Song Search </a>
             </div>
             

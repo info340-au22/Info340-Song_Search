@@ -21,7 +21,7 @@ export function NewlyUploaded(props) {
     const [ascending, setAscending] = useState(null);
 
     let sortedData = _.sortBy(EXAMPLE_DATA , [sortByCriteria]);
-    if (sortByCriteria != null && ascending != true) {
+    if (sortByCriteria !== null && ascending !== true) {
         sortedData = _.reverse(sortedData);
     }
 
