@@ -60,7 +60,7 @@ export function HomePage(props) {
                             <option value="2"> Medium (Between 3 and 5) </option>
                             <option value="3"> Long(&gt;5mins) </option>
                         </select>
-                        <img src="/img/musicNote.png" alt="A picture of a music note" />
+                        <img className="musicNote" src="/img/musicNote.png" alt="A picture of a music note" />
                     </div>
 
                     <input className="btn btn-dark" type="submit" value="Search" />

@@ -21,8 +21,8 @@ export default function App(props) {
       {/* <HomePage/> */}
       {/* <Search /> */}
       {/* <Login /> */}
-      <NewlyUploaded />
-      {/* <Upload /> */}
+      {/* <NewlyUploaded /> */}
+      <Upload />
 
       <Footer />
     </div>

@@ -22,6 +22,7 @@ export function Header(props) {
               <a href="#" className="icon"><span className="material-icons">menu</span></a>
               <a href="index.html" className="title"> Song Search </a>
             </div>
+            
 
             <ul className="pagelinks">
               <li><a href="index.html"><span className="material-icons" aria-label="Home">music_note</span></a></li>

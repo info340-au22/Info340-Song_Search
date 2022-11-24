@@ -10,6 +10,10 @@ body {
   font-family: 'Poppins', Helvetica, sans-serif;
 }
 
+.musicNote {
+  width: 100%;
+}
+
 main {
   margin-top: 4rem;
   padding-bottom: 2rem;
