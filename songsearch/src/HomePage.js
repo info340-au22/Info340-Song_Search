@@ -72,7 +72,7 @@ export function HomePage(props) {
 
                         <p> Sign-in or make an account to</p>
                         <p> reach whole new audiences!  </p>
-                        <img src="/img/DJBoard.jpg" alt="A picutre of a DJ board" />
+                        <img src="/img/DJBoard.jpg" alt="A picture of a DJ board" />
                         <p className="img-cite"><cite><a href="https://unsplash.com/photos/YrtFlrLo2DQ"> Marcela Laskoski </a></cite></p>
 
 
