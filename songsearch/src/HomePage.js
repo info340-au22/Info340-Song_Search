@@ -34,8 +34,8 @@ export function HomePage(props) {
                     </div>
 
                     <div className="px-1 py-3">
-                        <select className="form-select" aria-label="Default select" placeholder='Genre'>
-                            <option selected disabled> Genre </option>
+                        <select className="form-select" aria-label="Default select" placeholder='Genre' defaultValue="0">
+                            <option value="0" disabled> Genre </option>
                             <option value="1"> Hip-Hop/Rap </option>
                             <option value="2"> EDM </option>
                             <option value="3"> Country </option>
@@ -46,8 +46,8 @@ export function HomePage(props) {
                     
                     
                     <div className="px-1 py-3">
-                        <select className="form-select" aria-label="Default select">
-                            <option selected disabled> Energy Level? </option>
+                        <select className="form-select" aria-label="Default select" defaultValue="0">
+                            <option value="0" disabled> Energy Level? </option>
                             <option value="1"> Low </option>
                             <option value="2"> Medium </option>
                             <option value="3"> High</option>
@@ -55,8 +55,8 @@ export function HomePage(props) {
                     </div>
 
                     <div className="px-1 py-3">
-                        <select className="form-select" aria-label="Default select">
-                            <option selected disabled> Duration? </option>
+                        <select className="form-select" aria-label="Default select" defaultValue="0">
+                            <option value="0" disabled> Duration? </option>
                             <option value="1"> Short(&gt;3mins) </option>
                             <option value="2"> Medium (Between 3 and 5) </option>
                             <option value="3"> Long(&gt;5mins) </option>
