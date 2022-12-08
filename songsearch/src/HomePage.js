@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 
 export function HomePage(props) {
@@ -6,7 +7,7 @@ export function HomePage(props) {
     return(
 
 
-        <main className='container'> 
+        <main className='container'>
         <section className="recommend card">
                     <div className="contents" id="topsongs">
                         <h3> Top Songs of the day </h3>
@@ -20,7 +21,7 @@ export function HomePage(props) {
                             <li className="list-group-item bg-transparent">Mother - Charlie Puth</li>
                             <li className="list-group-item bg-transparent">Higher Lover - Kygo</li>
                             <div className="text-center">
-                                <a href="search.html"><input className="btn btn-dark my-3" type="submit" value="Browse More..." /></a>
+                            <NavLink to="/recent"><input className="btn btn-dark my-3" type="submit" value="Browse More..." /></NavLink>
                             </div>
                         </ol>
                     </div>
@@ -63,7 +64,7 @@ export function HomePage(props) {
                         <img className="musicNote" src="/img/musicNote.png" alt="A picture of a music note" />
                     </div>
 
-                    <input className="btn btn-dark" type="submit" value="Search" />
+                    <NavLink to="/search" className="d-grid gap-2 no_underline"> <input className="btn btn-dark" type="submit" value="Search" /> </NavLink>
 
                 </section>
 
@@ -80,7 +81,7 @@ export function HomePage(props) {
                     </div>
 
                     <div className="art-button py-3">
-                        <a href="login.html"><button type="button" className="btn btn-dark">Log-in/Sign-Up</button></a>
+                        <NavLink to="/login"><button type="button" className="btn btn-dark">Log-in/Sign-Up</button></NavLink>
                     </div>
                     
                 </section>

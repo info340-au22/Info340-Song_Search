@@ -7,23 +7,26 @@ import { Login } from './Login.js'
 import { Search } from './Search.js';
 import { NewlyUploaded } from './NewlyUploaded.js';
 import {Upload} from './Upload.js';
+import { Navigate, Route, Routes } from 'react-router-dom';
+
 
 
 export default function App(props) {
 
-  const currentPage = "NewlyUploaded"
   return (
 
     <div className="SongSearch">
 
-      <Header currentPage={currentPage}/>
+      <Header />
 
-      {/* <HomePage/> */}
-      {/* <Search /> */}
-      {/* <Login /> */}
-      <NewlyUploaded />
-      {/* <Upload /> */}
-
+      <Routes>
+        <Route path="home" element={<HomePage/>} />
+        <Route path="search" element={<Search/>} />
+        <Route path="login" element={<Login/>} />
+        <Route path="recent" element={<NewlyUploaded/>} />
+        <Route path="upload" element={<Upload/>} />
+        <Route path='/*' element={<Navigate to="/home"/>} />
+      </Routes>
       <Footer />
     </div>
   );

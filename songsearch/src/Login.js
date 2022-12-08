@@ -14,7 +14,7 @@ export function Login(Props) {
             -->
             */}
 
-            <div class="login">
+            <div className="login">
                 <h1>Login to your SongSearch Account</h1>
                 <form className="form-login">
                     <input type="text" title="username" placeholder="username" />
@@ -22,9 +22,9 @@ export function Login(Props) {
                     <label>
                         <input type="checkbox" name="remember" /> Remember Me
                     </label>
-                    <button type="submit" class="btn-login">Login</button>
+                    <button type="submit" className="btn-login">Login</button>
 
-                    <button class="btn-new">Create new Account</button>
+                    <button className="btn-new">Create new Account</button>
                 </form>
             </div>
         </div>

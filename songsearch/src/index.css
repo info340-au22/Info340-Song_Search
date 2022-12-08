@@ -235,6 +235,10 @@ footer {
   padding: 0 16px;
 }
 
+.no_underline {
+  text-decoration: none;
+}
+
 .btn-new {
   background-color: #1985ff;
   color: white;
