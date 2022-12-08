@@ -1,11 +1,9 @@
 import React from 'react';
 import { NavLink, useLocation} from 'react-router-dom';
 
+
 export function Header(props) {
-
-
   const location = useLocation();
-  console.log(location);
   function displayHeaderText() {
     if (location.pathname === "/home") {
       return(
@@ -16,7 +14,15 @@ export function Header(props) {
       )
     } else if (location.pathname === "/recent") {
       return <h1>Browse New Uploaded Songs!</h1>
+    } else if (location.pathname === "/upload") {
+      return(
+        <div>
+          <h1> Upload your own music here! </h1>
+          <h3> Just make sure that you have logged in!</h3>
+        </div>
+      )
     }
+
     }
 
   return(
