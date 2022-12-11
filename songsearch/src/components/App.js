@@ -8,10 +8,13 @@ import { Search } from './Search.js';
 import { NewlyUploaded } from './NewlyUploaded.js';
 import {Upload} from './Upload.js';
 import { Navigate, Route, Routes } from 'react-router-dom';
+import { useState } from 'react';
 
 
 
 export default function App(props) {
+
+  const[open, setOpen] = useState(false);
 
   return (
 

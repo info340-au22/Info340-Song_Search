@@ -29,7 +29,6 @@ export function Search(props) {
   return (
     <main>
       <section>
-        <h1>Search</h1>
           <form className="form-login">
               <input type="text" placeholder="Search.." />
               <button className="btn-new">Find Songs</button>
