@@ -1,8 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
+import { getDatabase, ref, onValue } from 'firebase/database';
+
 
 export default function SearchResults(props) {
 
-  let rows = props.data.map((track) => {
+  const [songList, SetSongList] = useState([])
+
+    useEffect(() => {
+        const db = getDatabase();
+        const songReference = ref(db, "Songs");
+        
+        const offFunction = onValue(songReference, (snapshot) => {
+        const songData = snapshot.val();
+
+        const objKeys = Object.keys(songData);
+        console.log(objKeys);
+
+        const songArray = objKeys.map((keyString) => {
+            const theMessageObj = songData[keyString];
+            theMessageObj.key = keyString;
+            return theMessageObj;
+        })
+        SetSongList(songArray)
+        })
+
+        function cleanup() {
+        offFunction();
+        }
+
+        return cleanup;
+},[])
+
+  let rows = songList.map((track) => {
     return <SongDataRow song={track} />
   });
 
@@ -31,13 +61,13 @@ export default function SearchResults(props) {
 }
 
 function SongDataRow({ song }) {
-  return (
-    <tr key={song.spotifyLink}>
-      <td> {song.track_name} </td>
-      <td> {song.track_artist} </td>
-      <td> {song.genre} </td>
-      <td> {song.uploadDate} </td>
-      <td><a href={song.spotifyLink}> Spotify </a></td>
+  return(
+    <tr key={song.track_id}>
+        <td> {song.track_name} </td>
+        <td> {song.track_artist} </td>
+        <td className='OptionalColumn'> {song.genre} </td>
+        <td className='OptionalColumn'> {song.danceability} </td>
+        <td><a href={"https://open.spotify.com/track/"+song.track_id}> Here </a></td>
     </tr>
-  );
+)
 }

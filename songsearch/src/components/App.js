@@ -8,13 +8,13 @@ import { Search } from './Search.js';
 import { NewlyUploaded } from './NewlyUploaded.js';
 import {Upload} from './Upload.js';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { getDatabase, ref, set as firebaseSet, onValue, push as firebasePush } from 'firebase/database';
 
 
 
 export default function App(props) {
 
-  const[open, setOpen] = useState(false);
 
   return (
 
@@ -25,8 +25,8 @@ export default function App(props) {
       <Routes>
         <Route path="home" element={<HomePage/>} />
         <Route path="search" element={<Search/>} />
-        <Route path="login" element={<Login/>} />
-        <Route path="recent" element={<NewlyUploaded/>} />
+        <Route path="login" element={<Login/>} /> 
+        <Route path="recent" element={<NewlyUploaded />} />
         <Route path="upload" element={<Upload/>} />
         <Route path='/*' element={<Navigate to="/home"/>} />
       </Routes>

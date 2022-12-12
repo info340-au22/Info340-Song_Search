@@ -1,40 +1,54 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import _ from 'lodash';
-
-
-const EXAMPLE_DATA = [
-    { track_name: "Never Really Over - R3HAB Remix", track_artist: "Katy Perry", genre: "Pop", uploadDate: "10/14/2022", spotifyLink: "https://open.spotify.com/track/2OAylPUDDfwRGfe0lYqlCQ" },
-    { track_name: "Bad guy (with Justin Bieber)", track_artist: "Billie Elish", genre: "pop", uploadDate: "09/30/2022", spotifyLink: "https://open.spotify.com/track/3yNZ5r3LKfdmjoS3gkhUCT" },
-    { track_name: "Civil War", track_artist: "Guns N' Roses", genre: "Rock", uploadDate: "09/27/2022", spotifyLink: "https://open.spotify.com/track/0EHzXpyi1swR8sMpbVHcLJ" },
-    { track_name: "Gone - The Wild Remix", track_artist: "Charli XCX", genre: "pop", uploadDate: "09/25/2022", spotifyLink: "https://open.spotify.com/track/79zGYOcAe2VmJsyQiJX31a" },
-    { track_name: "Silverskin", track_artist: "Sam Feldt", genre: "Latin", uploadDate: "09/20/2022", spotifyLink: "https://open.spotify.com/track/2DMqiPZ8uLE2AtwHLInHOI" },
-    { track_name: "Messiah", track_artist: "Klingande", genre: "Latin", uploadDate: "09/12/2022", spotifyLink: "https://open.spotify.com/track/3876zu2BcDL39vLkkJGKLZ" },
-    { track_name: "The Box", track_artist: "Roddy Rich", genre: "Rap", uploadDate: "08/28/2022", spotifyLink: "https://open.spotify.com/track/" },
-    { track_name: "VIBEZ", track_artist: "DaBaby", genre: "Rap", uploadDate: "07/13/22", spotifyLink: "https://open.spotify.com/track/0fySG6A6qLE8IvDpayb5bM" },
-    { track_name: "Paradise City", track_artist: "Guns N' Roses", genre: "Rock", uploadDate: "05/03/2022", spotifyLink: "https://open.spotify.com/track/3YBZIN3rekqsKxbJc9FZko" },
-    { track_name: "My Sweet Lord", track_artist: "George Harrison", genre: "Rock", uploadDate: "04/13/2022", spotifyLink: "https://open.spotify.com/track/1chu8wc9zbNqTQ2ahROys1" }
-]
+import { getDatabase, ref, onValue } from 'firebase/database';
 
 
 export function NewlyUploaded(props) {
     const [sortByCriteria, sortColumnData] = useState(null);
     const [ascending, setAscending] = useState(null);
 
-    let sortedData = _.sortBy(EXAMPLE_DATA , [sortByCriteria]);
+    const [songList, SetSongList] = useState([])
+
+    useEffect(() => {
+        const db = getDatabase();
+        const songReference = ref(db, "Songs");
+        
+        const offFunction = onValue(songReference, (snapshot) => {
+        const songData = snapshot.val();
+
+        const objKeys = Object.keys(songData);
+        console.log(objKeys);
+
+        const songArray = objKeys.map((keyString) => {
+            const theMessageObj = songData[keyString];
+            theMessageObj.key = keyString;
+            return theMessageObj;
+        })
+        SetSongList(songArray)
+        })
+
+        function cleanup() {
+        offFunction();
+        }
+
+        return cleanup;
+},[])
+ 
+
+    let sortedData = _.sortBy(songList , [sortByCriteria]);
     if (sortByCriteria !== null && ascending !== true) {
         sortedData = _.reverse(sortedData);
     }
 
 
-
     const displaySongs = sortedData.map((song) => {
         return(
-            <tr key={song.spotifyLink}>
+            <tr key={song.track_id}>
                 <td> {song.track_name} </td>
                 <td> {song.track_artist} </td>
                 <td className='OptionalColumn'> {song.genre} </td>
-                <td className='OptionalColumn'> {song.uploadDate} </td>
-                <td><a href={song.spotifyLink}> Here </a></td>
+                <td className='OptionalColumn'> {song.danceability} </td>
+                <td><a href={"https://open.spotify.com/track/"+song.track_id}> Here </a></td>
             </tr>
         )
     })
@@ -73,8 +87,8 @@ export function NewlyUploaded(props) {
                                 <SortButton name="genre" onClick={handleClick} active={sortByCriteria} ascending={ascending}/>
                             </th>
                             <th className='OptionalColumn'>
-                                Date Added
-                                <SortButton name="uploadDate" onClick={handleClick} active={sortByCriteria} ascending={ascending}/>
+                                Dancability
+                                <SortButton name="dancability" onClick={handleClick} active={sortByCriteria} ascending={ascending}/>
                             </th>
                             <th className='py-3'>Spotify Link</th>
                         </tr>
