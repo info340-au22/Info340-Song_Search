@@ -28,6 +28,27 @@ main {
   text-decoration: none;
   font-size: 1rem;
 }
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 10px;
+  top: 15px;
+  color: white;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: white;
+}
+.bm-burger-bars-hover {
+  background: #a90000;
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+  background: blue;
+}
 
 .burger .icon {
   background: rgb(135, 207, 231);
@@ -182,6 +203,10 @@ footer {
   padding-bottom: 5rem;
 }
 
+label {
+  color: white;
+}
+
 /* Login CSS*/
 
 .container-login {
@@ -293,8 +318,6 @@ footer {
       margin: 0;
       padding: 0;
   }
-
-
 
   nav li {
       margin: 0;

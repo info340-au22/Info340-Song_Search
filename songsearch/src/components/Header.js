@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink, useLocation} from 'react-router-dom';
+import {Burger} from './Burger.js';
 
 
 export function Header(props) {
@@ -21,6 +22,13 @@ export function Header(props) {
           <h3> Just make sure that you have logged in!</h3>
         </div>
       )
+    } else if (location.pathname === "/search") {
+      return(
+      <div>
+          <h1> Search by criteria here! </h1>
+          <h3> Filter music to find songs you like!</h3>
+      </div>
+      )
     }
 
     }
@@ -29,7 +37,8 @@ export function Header(props) {
     <header>
         <nav>
             <div className="burger">
-              <a href="" className="icon"><span className="material-icons">menu</span></a>
+              <Burger />
+
               <a href="index.html" className="title"> Song Search </a>
             </div>
             
