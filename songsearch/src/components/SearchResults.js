@@ -5,34 +5,8 @@ import { getDatabase, ref, onValue } from 'firebase/database';
 
 export default function SearchResults(props) {
 
-  const [songList, SetSongList] = useState([])
 
-    useEffect(() => {
-        const db = getDatabase();
-        const songReference = ref(db, "Songs");
-        
-        const offFunction = onValue(songReference, (snapshot) => {
-        const songData = snapshot.val();
-
-        const objKeys = Object.keys(songData);
-        console.log(objKeys);
-
-        const songArray = objKeys.map((keyString) => {
-            const theMessageObj = songData[keyString];
-            theMessageObj.key = keyString;
-            return theMessageObj;
-        })
-        SetSongList(songArray)
-        })
-
-        function cleanup() {
-        offFunction();
-        }
-
-        return cleanup;
-},[])
-
-  let rows = songList.map((track) => {
+  let rows = props.data.map((track) => {
     return <SongDataRow song={track} />
   });
 

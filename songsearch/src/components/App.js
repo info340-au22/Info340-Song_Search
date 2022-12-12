@@ -14,7 +14,33 @@ import { getDatabase, ref, set as firebaseSet, onValue, push as firebasePush } f
 
 
 export default function App(props) {
+  const [songList, SetSongList] = useState([])
 
+  useEffect(() => {
+      const db = getDatabase();
+      const songReference = ref(db, "Songs");
+      
+      const offFunction = onValue(songReference, (snapshot) => {
+      const songData = snapshot.val();
+
+      const objKeys = Object.keys(songData);
+
+
+      const songArray = objKeys.map((keyString) => {
+          const theMessageObj = songData[keyString];
+          theMessageObj.key = keyString;
+          return theMessageObj;
+      })
+      SetSongList(songArray)
+      })
+
+      function cleanup() {
+      offFunction();
+      }
+
+      return cleanup;
+},[])
+console.log(songList)
 
   return (
 
@@ -24,9 +50,9 @@ export default function App(props) {
 
       <Routes>
         <Route path="home" element={<HomePage/>} />
-        <Route path="search" element={<Search/>} />
+        <Route path="search" element={<Search songList={songList}/>} />
         <Route path="login" element={<Login/>} /> 
-        <Route path="recent" element={<NewlyUploaded />} />
+        <Route path="recent" element={<NewlyUploaded songList={songList} />} />
         <Route path="upload" element={<Upload/>} />
         <Route path='/*' element={<Navigate to="/home"/>} />
       </Routes>

@@ -7,32 +7,7 @@ export function NewlyUploaded(props) {
     const [sortByCriteria, sortColumnData] = useState(null);
     const [ascending, setAscending] = useState(null);
 
-    const [songList, SetSongList] = useState([])
-
-    useEffect(() => {
-        const db = getDatabase();
-        const songReference = ref(db, "Songs");
-        
-        const offFunction = onValue(songReference, (snapshot) => {
-        const songData = snapshot.val();
-
-        const objKeys = Object.keys(songData);
-        console.log(objKeys);
-
-        const songArray = objKeys.map((keyString) => {
-            const theMessageObj = songData[keyString];
-            theMessageObj.key = keyString;
-            return theMessageObj;
-        })
-        SetSongList(songArray)
-        })
-
-        function cleanup() {
-        offFunction();
-        }
-
-        return cleanup;
-},[])
+    const songList = props.songList;
  
 
     let sortedData = _.sortBy(songList , [sortByCriteria]);
