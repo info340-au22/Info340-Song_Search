@@ -203,6 +203,10 @@ footer {
   padding-bottom: 5rem;
 }
 
+label {
+  color: white;
+}
+
 /* Login CSS*/
 
 .container-login {
@@ -314,8 +318,6 @@ footer {
       margin: 0;
       padding: 0;
   }
-
-
 
   nav li {
       margin: 0;

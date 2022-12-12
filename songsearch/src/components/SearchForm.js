@@ -27,27 +27,21 @@ export default function SearchForm(props) {
   })
 
   return (
-    <div className="row align-items-center mb-3">
-      {/* <div className="col-auto">
-        <select onChange={handleGenreChange} value={selectedGenre} id="genreSelect" className="form-select">
-          <option value="">Show All Genres</option>
-          {optionElems}
-        </select>
-      </div> */}
+    <div className="row justify-content-md-center mb-4 mx-auto">
+      <div className="col-auto">
+        <input onChange={handleNameChange} value={selectedName} placeholder="Song Title" type="text" id="nameSelect" className="form-control" />
+      </div>
+      <div className="col-auto">
+        <input onChange={handleArtistChange} value={selectedArtist} placeholder="Artist Name" type="text" id="artistSelect" className="form-control" />
+      </div>
       <div className="col-auto">
         <select onChange={handleGenreChange} value={selectedGenre} id="genreSelect" className="form-select">
           <option value="">Show All Genres</option>
           {optionElems}
         </select>
       </div>
-      {/* <div className="col-auto">
-        <div className="form-check">
-          <input onChange={handleRunnerUpsChange} checked={runnerUpsIncluded} id="runnerupCheckbox" type="checkbox" className="form-check-input" />
-          <label htmlFor="runnerupCheckbox" className="form-check-label">Include runner-up</label>
-        </div>
-      </div> */}
       <div className="col-auto">
-        <button onClick={changeFilter} id="submitButton" type="submit" className="btn btn-warning">Apply Filters</button>
+        <button onClick={changeFilter} id="submitButton" type="submit" className="btn btn-primary">Apply Filters</button>
       </div>
     </div>
   );
