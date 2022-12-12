@@ -4,7 +4,6 @@ import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
 const firebaseUIConfig = {
     signInOptions: [
-        GoogleAuthProvider.PROVIDER_ID,
         { provider: EmailAuthProvider.PROVIDER_ID, requiredDisplayName: true },
     ],
     signInFlow: 'popup',
@@ -17,21 +16,38 @@ const firebaseUIConfig = {
 }
 
 export function Login(Props) {
+    const currentUser = props.currentUser;
+    const loginFunction = props.loginCallback;
+
+    // authenticator
     const auth = getAuth();
 
-    return (
-        <main className='container-login'>
-            <div className='container-login'>
-            {/*
-            </div><!-- logo
-                <div clas="row-logo">
-                    <div class="colm-logo">
-                        <img src="img/musicIcon.png" alt="Logo">
-                    </div>
-                </div>
-            -->
-            */}
+    const configObj = {
+        loginOptions: [
+            {
+                provider: EmailAuthProvider.PROVIDER_ID,
+                requiredDisplayName: true,
+            }
+        ],
+        signInFlow: 'popup',
+        callbacks: {
+            loginSuccessWithAuthResults: () => false
+        },
+        credentialHelper: 'none'
+    }
 
+    return (
+        <div className='container-login'>
+            <div className="login">
+                <StyledFirebaseAuth uiConfig={firebaseUIConfig} firebaseAuth={auth} />
+            </div>
+        </div>
+    )
+}
+
+{/* 
+<main className='container-login'>
+            <div className='container-login'>
             <div className="login">
                 <h1>Login to your SongSearch Account</h1>
                 <form className="form-login">
@@ -44,11 +60,9 @@ export function Login(Props) {
                     <button type="submit" className="btn-login">Login</button>
 
                     <button className="btn-new">Create new Account</button>
-                    */}
+                    *}
                     <StyledFirebaseAuth uiConfig={firebaseUIConfig} firebaseAuth={auth} />
                 </form>
             </div>
         </div>
-        </main>
-    )
-}
+        </main> */}
