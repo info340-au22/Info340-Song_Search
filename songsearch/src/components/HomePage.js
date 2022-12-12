@@ -43,8 +43,8 @@ export function HomePage(props) {
                             <option value="5"> Electro </option>
                         </select>
                     </div>
-                    
-                    
+
+
                     <div className="px-1 py-3">
                         <select className="form-select" aria-label="Default select" defaultValue="0">
                             <option value="0" disabled> Energy Level? </option>
@@ -61,7 +61,7 @@ export function HomePage(props) {
                             <option value="2"> Medium (Between 3 and 5) </option>
                             <option value="3"> Long(&gt;5mins) </option>
                         </select>
-                        <img className="musicNote" src="/img/musicNote.png" alt="A picture of a music note" />
+                        <img className="musicNote" src="/img/musicNote.png" alt="A music note" />
                     </div>
 
                     <NavLink to="/search" className="d-grid gap-2 no_underline"> <input className="btn btn-dark" type="submit" value="Search" /> </NavLink>
@@ -74,7 +74,7 @@ export function HomePage(props) {
 
                         <p> Sign-in or make an account to</p>
                         <p> reach whole new audiences!  </p>
-                        <img src="/img/DJBoard.jpg" alt="A picture of a DJ board" />
+                        <img src="/img/DJBoard.jpg" alt="A DJ board" />
                         <p className="img-cite"><cite><a href="https://unsplash.com/photos/YrtFlrLo2DQ"> Marcela Laskoski </a></cite></p>
 
 
@@ -83,7 +83,7 @@ export function HomePage(props) {
                     <div className="art-button py-3">
                         <NavLink to="/login"><button type="button" className="btn btn-dark">Log-in/Sign-Up</button></NavLink>
                     </div>
-                    
+
                 </section>
       </main>
 
