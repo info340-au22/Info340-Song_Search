@@ -22,7 +22,7 @@ export default function App(props) {
   useEffect(() => {
       const db = getDatabase();
       const songReference = ref(db, "Songs");
-      
+
       const offFunction = onValue(songReference, (snapshot) => {
       const songData = snapshot.val();
 
@@ -54,7 +54,7 @@ export default function App(props) {
       <Routes>
         <Route path="home" element={<HomePage/>} />
         <Route path="search" element={<Search songList={songList}/>} />
-        <Route path="login" element={<Login setLoginStatus={setLoginStatus}/>} /> 
+        <Route path="login" element={<Login setLoginStatus={setLoginStatus}/>} />
         <Route path="recent" element={<NewlyUploaded songList={songList} />} />
 
         <Route element={<ProtectedPage loggedIn={loggedIn} />}>
