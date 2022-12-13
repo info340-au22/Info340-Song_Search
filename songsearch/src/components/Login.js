@@ -1,5 +1,5 @@
 import React from 'react';
-import { getAuth, EmailAuthProvider, GoogleAuthProvider } from 'firebase/auth'
+import { getAuth, EmailAuthProvider, GoogleAuthProvider, signOut } from 'firebase/auth'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
 const firebaseUIConfig = {
@@ -23,20 +23,19 @@ export function Login(props) {
 
     // authenticator
     const auth = getAuth();
-
-    const configObj = {
-        loginOptions: [
-            {
-                provider: EmailAuthProvider.PROVIDER_ID,
-                requiredDisplayName: true,
-            }
-        ],
-        signInFlow: 'popup',
-        callbacks: {
-            loginSuccessWithAuthResults: () => false
-        },
-        credentialHelper: 'none'
-    }
+    
+    onAuthStateChanged(auth, (firebaseUser) => {
+        if(firebaseUser){ 
+            console.log('logged in', firebaseUser.displayName);
+            currentUser(firebaseUser)
+            setLoginStatus(true)
+        }
+        else {
+            signOut(auth)
+                .catch(err => console.log(err));
+            console.log('logged out');
+        }
+    });
 
     return (
         <div className='container-login'>
