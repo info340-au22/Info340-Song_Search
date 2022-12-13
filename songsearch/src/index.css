@@ -103,6 +103,10 @@ table {
   border-radius:6px;
 }
 
+.search {
+  max-width: 35%;
+}
+
 tr {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -377,8 +381,6 @@ textarea {
   .recommend li {
       overflow-wrap: break-word;
   }
-
-
 
   .art-contents img{
       display: block;

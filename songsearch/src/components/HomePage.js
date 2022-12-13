@@ -28,40 +28,11 @@ export function HomePage(props) {
 
                 </section>
 
-                <section className="Search card">
-                    <div className="contents">
-                        <h3> Looking for a quick song?</h3>
-                    </div>
-
-                    <div className="px-1 py-3">
-                        <select className="form-select" aria-label="Default select" placeholder='Genre' defaultValue="0">
-                            <option value="0" disabled> Genre </option>
-                            <option value="1"> Hip-Hop/Rap </option>
-                            <option value="2"> EDM </option>
-                            <option value="3"> Country </option>
-                            <option value="4"> Jazz </option>
-                            <option value="5"> Electro </option>
-                        </select>
-                    </div>
-
-
-                    <div className="px-1 py-3">
-                        <select className="form-select" aria-label="Default select" defaultValue="0">
-                            <option value="0" disabled> Energy Level? </option>
-                            <option value="1"> Low </option>
-                            <option value="2"> Medium </option>
-                            <option value="3"> High</option>
-                        </select>
-                    </div>
-
-                    <div className="px-1 py-3">
-                        <select className="form-select" aria-label="Default select" defaultValue="0">
-                            <option value="0" disabled> Duration? </option>
-                            <option value="1"> Short(&gt;3mins) </option>
-                            <option value="2"> Medium (Between 3 and 5) </option>
-                            <option value="3"> Long(&gt;5mins) </option>
-                        </select>
-                        <img className="musicNote" src="/img/musicNote.png" alt="A music note" />
+                <section className="search card">
+                    <div className="contents mb-3">
+                        <h3> Looking for a specific song?</h3>
+                        <img className="musicNote" src="/img/searchHeadphones.jpg" alt="headphones over a background of clocks and timers" />
+                        <p className="img-cite"><cite><a href="https://www.phillymag.com/be-well-philly/2020/09/16/ritual-monthly-playlist/"> Westend61, Caroline Cunningham </a></cite></p>
                     </div>
 
                     <NavLink to="/search" className="d-grid gap-2 no_underline"> <input className="btn btn-dark" type="submit" value="Search" /> </NavLink>
@@ -81,7 +52,7 @@ export function HomePage(props) {
                     </div>
 
                     <div className="art-button py-3">
-                        <NavLink to="/login"><button type="button" className="btn btn-dark">Log-in/Sign-Up</button></NavLink>
+                        <NavLink to="/login"><button type="button" className="btn btn-dark">Login / Sign Up</button></NavLink>
                     </div>
 
                 </section>
