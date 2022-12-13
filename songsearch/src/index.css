@@ -187,15 +187,8 @@ body {
 }
 
 footer {
-  bottom: 0;
-  width: 100%;
-  margin-top : 3rem;
   padding-top: 0.5em;
-  padding-bottom: 1rem;
-  background-color: brown;
   font-size: 1rem;
-  text-align: center;
-  color: white;
 }
 
 .body-login footer {
@@ -353,6 +346,10 @@ textarea {
       background-image: url("../img/musicBackground.jpg");
       background-size: cover;
       background-position: center;
+      min-height: 100vh;
+      position: relative;
+      margin: 0;
+      padding-bottom: 70px;
   }
 
   .container {
@@ -389,16 +386,13 @@ textarea {
   }
 
   footer {
+      position: absolute;
       bottom: 0;
-      left: 0;
+      height: 70px;
       width: 100%;
-      margin-top : 3rem;
-      padding-top: 0.5em;
       background-color: brown;
       font-size: 1rem;
       text-align: center;
       color: white;
   }
-
-
 }

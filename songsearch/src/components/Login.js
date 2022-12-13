@@ -5,6 +5,7 @@ import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 const firebaseUIConfig = {
     signInOptions: [
         { provider: EmailAuthProvider.PROVIDER_ID, requiredDisplayName: true },
+        GoogleAuthProvider.PROVIDER_ID,
     ],
     signInFlow: 'popup',
     credentialHelper: 'none',
@@ -45,25 +46,3 @@ export function Login(props) {
         </div>
     )
 }
-
-{/*
-<main className='container-login'>
-            <div className='container-login'>
-            <div className="login">
-                <h1>Login to your SongSearch Account</h1>
-                <form className="form-login">
-                    {/*
-                                        <input type="text" title="username" placeholder="username" />
-                    <input type="password" title="username" placeholder="password" />
-                    <label>
-                        <input type="checkbox" name="remember" /> Remember Me
-                    </label>
-                    <button type="submit" className="btn-login">Login</button>
-
-                    <button className="btn-new">Create new Account</button>
-                    *}
-                    <StyledFirebaseAuth uiConfig={firebaseUIConfig} firebaseAuth={auth} />
-                </form>
-            </div>
-        </div>
-        </main> */}

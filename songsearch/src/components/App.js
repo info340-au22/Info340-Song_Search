@@ -50,19 +50,20 @@ export default function App(props) {
     <div className="SongSearch">
 
       <Header />
+      <body>
+        <Routes>
+          <Route path="home" element={<HomePage/>} />
+          <Route path="search" element={<Search songList={songList}/>} />
+          <Route path="login" element={<Login setLoginStatus={setLoginStatus}/>} />
+          <Route path="recent" element={<NewlyUploaded songList={songList} />} />
 
-      <Routes>
-        <Route path="home" element={<HomePage/>} />
-        <Route path="search" element={<Search songList={songList}/>} />
-        <Route path="login" element={<Login setLoginStatus={setLoginStatus}/>} />
-        <Route path="recent" element={<NewlyUploaded songList={songList} />} />
+          <Route element={<ProtectedPage loggedIn={loggedIn} />}>
+            <Route path="upload" element={<Upload/>} />
+          </Route>
 
-        <Route element={<ProtectedPage loggedIn={loggedIn} />}>
-          <Route path="upload" element={<Upload/>} />
-        </Route>
-
-        <Route path='/*' element={<Navigate to="/home"/>} />
-      </Routes>
+          <Route path='/*' element={<Navigate to="/home"/>} />
+        </Routes>
+      </body>
       <Footer />
     </div>
   );
