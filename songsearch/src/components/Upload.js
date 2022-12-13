@@ -8,7 +8,6 @@ export function Upload(props) {
     const [songGenre, setGenreaValue] = useState("");
     const [songTrackID,setSongTrackID] = useState("");
     const [songDuration, setSongDuration] = useState("");
-    const [allowSubmit, setSubmitAvailable] = useState(true);
     
 
 
@@ -50,13 +49,16 @@ export function Upload(props) {
             "newlyUploaded":true
         }
 
-        console.log(newData)
 
         const db = getDatabase(); //"the database"
         const SongsRef = ref(db, 'Songs');
         firebasePush(SongsRef, newData);
 
-        songNameChange("")
+        setSongValue("");
+        setArtistValue("");
+        setGenreaValue("");
+        setSongTrackID("");
+        setSongDuration("");
     }
 
 
@@ -65,19 +67,19 @@ export function Upload(props) {
             <div className="ms-5 p-3 card bg-dark">
                 <form onSubmit={handleSubmit}>
                   <label for="songName">Song Name: </label>
-                  <textarea className="form-control" type="text" id="songName" name="songName" onChange={songNameChange}/><br/><br/>
+                  <textarea className="form-control" type="text" id="songName" name="songName" onChange={songNameChange} placeholder="Enter Song Name" value={songName}></textarea>  <br/><br/> 
 
                   <label for="artist">Artist:</label>
-                  <textarea className="form-control" type="text" id="artist" name="artist" onChange={songArtistChange}/><br/><br/>
+                  <textarea className="form-control" type="text" id="artist" name="artist" onChange={songArtistChange} placeholder="Enter Song Artist" value={songArtist}></textarea>  <br/><br/>
 
                   <label for="genre">Genre: </label>
-                  <textarea className="form-control" type="text" id="genre" name="genre" onChange={songGenreChange}/><br/><br/>
+                  <textarea className="form-control" type="text" id="genre" name="genre" onChange={songGenreChange} placeholder="Enter Song Genre" value={songGenre}></textarea><br/><br/>
 
                   <label for="link">Spotify Track ID: </label>
-                  <textarea className="form-control" type="text" id="link" name="link" onChange={songTrackChange}/><br/><br/>
+                  <textarea className="form-control" type="text" id="link" name="link" onChange={songTrackChange} placeholder="Enter Song Track ID from Spotify" value={songTrackID}></textarea><br/><br/>
 
                   <label for="link">Duration(min:sec) </label>
-                  <textarea className="form-control" type="text" id="link" name="link" onChange={songDurationChange}/><br/><br/>
+                  <textarea className="form-control" type="text" id="link" name="link" onChange={songDurationChange} placeholder="Enter Song Duration" value={songDuration}></textarea><br/><br/>
 
                   <button className="btn btn-secondary" type="submit" disabled={songName === "" || songArtist === "" || songGenre === ""}> Submit </button>
                 </form>
