@@ -69,7 +69,12 @@ export default function App(props) {
       <Routes>
         <Route path="home" element={<HomePage/>} />
         <Route path="search" element={<Search songList={songList}/>} />
-        <Route path="login" element={<Login setLoginStatus={setLoginStatus}/>} />
+
+        <Route element={<LoggedIn currentUser={currentUser} />}>
+          <Route path="login" element={<Login setLoginStatus={setLoginStatus}/>} />
+        </Route>
+
+
         <Route path="recent" element={<NewlyUploaded songList={songList} />} />
 
         <Route element={<ProtectedPage currentUser={currentUser} />}>
@@ -90,9 +95,23 @@ function ProtectedPage(props) {
   if(currentUser === null) { //if no user, send to sign in
     return <Navigate to="/login" />
   }
-  else { //otherwise, show the child route content
+  else { //otherwise, show the child route content\
     return <Outlet />
   }
 }
 
+function LoggedIn(props) {
+  const currentUser = props.currentUser;
+
+  if(currentUser != null) {
+    return(
+    <div>
+      <h1 className="loggedIn"> Currently Logged in as + {currentUser} </h1>
+    </div> 
+    )
+  } else {
+    return <Outlet />
+  }
+
+}
 

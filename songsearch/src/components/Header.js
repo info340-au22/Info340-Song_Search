@@ -34,6 +34,8 @@ export function Header(props) {
           <h3> Filter music to find songs you like!</h3>
       </div>
       )
+    } else if (location.pathname === "/login") {
+      return(<h1 className='pt-6'>Login in or Create an account here to upload your own music! </h1>)
     }
 
     }

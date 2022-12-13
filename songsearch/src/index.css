@@ -282,6 +282,14 @@ textarea {
   vertical-align: middle;
 }
 
+.loggedIn {
+  color: white;
+  text-align: center;
+  margin-top: 10rem;
+  padding-bottom: 3rem;
+  background-color: red;
+}
+
 
 @media (max-width: 992px) {
   .OptionalColumn{
