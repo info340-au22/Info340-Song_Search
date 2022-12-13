@@ -50,7 +50,7 @@ export default function App(props) {
     <div className="SongSearch">
 
       <Header />
-      <body>
+      <div className='wrapper'>
         <Routes>
           <Route path="home" element={<HomePage/>} />
           <Route path="search" element={<Search songList={songList}/>} />
@@ -63,7 +63,7 @@ export default function App(props) {
 
           <Route path='/*' element={<Navigate to="/home"/>} />
         </Routes>
-      </body>
+      </div>
       <Footer />
     </div>
   );
