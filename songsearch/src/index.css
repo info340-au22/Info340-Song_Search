@@ -103,6 +103,9 @@ table {
   border-radius:6px;
 }
 
+.search {
+  max-width: 35%;
+}
 
 tr {
   padding-top: 0.5rem;
@@ -197,19 +200,10 @@ body {
 footer {
   padding-top: 0.5em;
   font-size: 1rem;
-  background-color: brown;
-  padding-bottom: 2rem;
-  color: white;
-  text-align: center;
-}
-
-.loginDiv {
-  padding-bottom: 40rem;
 }
 
 .body-login footer {
   position: fixed;
-  bottom: 0;
   padding-bottom: 5rem;
 }
 
@@ -367,10 +361,6 @@ textarea {
       color: #39b6ff;
   }
 
-  .loginDiv {
-    padding-bottom: 0rem;
-  }
-
   body, .wrapper {
       background-color: antiquewhite;
       background-image: url("../img/musicBackground.jpg");
@@ -422,9 +412,5 @@ textarea {
       font-size: 1rem;
       text-align: center;
       color: white;
-  }
-
-  .search {
-    max-width: 35%;
   }
 }
