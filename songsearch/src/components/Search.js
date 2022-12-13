@@ -5,7 +5,6 @@ import SearchResults from './SearchResults';
 export function Search(props) {
   const songList = props.songList;
 
-  console.log(songList);
   const ALL_GENRES = Array.from(new Set(songList.map(song => song.genre)));
 
   let [filteredName, setFilteredName] = useState("");

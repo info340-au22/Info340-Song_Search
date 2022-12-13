@@ -15,9 +15,7 @@ import { getAuth, signOut, onAuthStateChanged } from 'firebase/auth'
 
 export default function App(props) {
   const [songList, SetSongList] = useState([])
-  const [loggedIn, setLoginStatus] = useState(false)
-  const currentUser = props.currentUser;
-
+  const [currentUser, setLoginStatus] = useState(null)
   const db = getDatabase();
       const songReference = ref(db, "Songs");
 
@@ -43,13 +41,13 @@ export default function App(props) {
       onAuthStateChanged(auth, (firebaseUser) => {
           if(firebaseUser) { 
               console.log('logged in', firebaseUser.displayName);
-              currentUser(firebaseUser)
-              setLoginStatus(true)
+              setLoginStatus(firebaseUser.displayName);
           }
           else {
               signOut(auth)
                   .catch(err => console.log(err)); //log any errors for debugging 
               console.log('logged out');
+              setLoginStatus(null);
           }
       });
 
@@ -74,7 +72,7 @@ export default function App(props) {
         <Route path="login" element={<Login setLoginStatus={setLoginStatus}/>} />
         <Route path="recent" element={<NewlyUploaded songList={songList} />} />
 
-        <Route element={<ProtectedPage loggedIn={loggedIn} />}>
+        <Route element={<ProtectedPage currentUser={currentUser} />}>
           <Route path="upload" element={<Upload/>} />
         </Route>
 
@@ -87,9 +85,9 @@ export default function App(props) {
 
 
 function ProtectedPage(props) {
-  const loggedIn = props.loggedIn;
+  const currentUser = props.currentUser;
   //...determine if user is logged in
-  if(loggedIn === false) { //if no user, send to sign in
+  if(currentUser === null) { //if no user, send to sign in
     return <Navigate to="/login" />
   }
   else { //otherwise, show the child route content
