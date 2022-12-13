@@ -348,7 +348,7 @@ textarea {
       color: #39b6ff;
   }
 
-  body {
+  body, .wrapper {
       background-color: antiquewhite;
       background-image: url("../img/musicBackground.jpg");
       background-size: cover;
