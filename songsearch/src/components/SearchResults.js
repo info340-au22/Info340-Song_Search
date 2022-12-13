@@ -17,12 +17,12 @@ export default function SearchResults(props) {
   return (
     <div className="mx-4">
       <table className="table">
-        <thead>
-          <tr>
+        <thead key="tableHead">
+          <tr key="Header">
             <th>Song Title</th>
             <th>Artist Name</th>
-            <th>Genre</th>
-            <th>Length</th>
+            <th className='OptionalColumn'>Genre</th>
+            <th className='OptionalColumn'>Length</th>
             <th>Spotify Link</th>
           </tr>
         </thead>
@@ -41,6 +41,7 @@ function millisToMinutes(millis) {
 }
 
 function SongDataRow({ song }) {
+
   return(
     <tr key={song.key}>
         <td> {song.track_name} </td>

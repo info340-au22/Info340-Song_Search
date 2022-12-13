@@ -40,13 +40,11 @@ export default function App(props) {
       
       onAuthStateChanged(auth, (firebaseUser) => {
           if(firebaseUser) { 
-              console.log('logged in', firebaseUser.displayName);
               setLoginStatus(firebaseUser.displayName);
           }
           else {
               signOut(auth)
                   .catch(err => console.log(err)); //log any errors for debugging 
-              console.log('logged out');
               setLoginStatus(null);
           }
       });

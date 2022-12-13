@@ -30,7 +30,7 @@ export function NewlyUploaded(props) {
 
     const displaySongs = sortedData.map((song) => {
         return(
-            <tr key={song.track_id}>
+            <tr key={song.key}>
                 <td> {song.track_name} </td>
                 <td> {song.track_artist} </td>
                 <td className='OptionalColumn'> {song.genre} </td>
@@ -85,7 +85,6 @@ export function NewlyUploaded(props) {
                     </tbody>
                 </table>
             </div>
-
         </main>
     )
 }

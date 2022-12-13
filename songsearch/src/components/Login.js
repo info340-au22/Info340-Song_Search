@@ -23,7 +23,7 @@ export function Login(props) {
 
 
     return (
-        <div className='container-login'>
+        <div className='container-login loginDiv'>
             <div className="login">
                 <img className="loginPic" src="/img/musicHome.png" alt="2 eight notes colored neon red and blue" />
                 <StyledFirebaseAuth uiConfig={firebaseUIConfig} firebaseAuth={auth} />

@@ -39,13 +39,14 @@ export function Upload(props) {
     function handleSubmit(event) {
         event.preventDefault();
 
+        const timeInMilis = songDuration * 1000
 
         const newData = {
             "track_name":songName,
             "track_artist":songArtist,
             "genre":songGenre,
             "track_id":songTrackID,
-            "duration_ms":songDuration,
+            "duration_ms":timeInMilis,
             "newlyUploaded":true
         }
 
@@ -66,19 +67,19 @@ export function Upload(props) {
         <main>
             <div className="ms-5 p-3 card bg-dark">
                 <form onSubmit={handleSubmit}>
-                  <label for="songName">Song Name: </label>
+                  <label>Song Name: </label>
                   <textarea className="form-control" type="text" id="songName" name="songName" onChange={songNameChange} placeholder="Enter Song Name" value={songName}></textarea>  <br/><br/> 
 
-                  <label for="artist">Artist:</label>
+                  <label>Artist:</label>
                   <textarea className="form-control" type="text" id="artist" name="artist" onChange={songArtistChange} placeholder="Enter Song Artist" value={songArtist}></textarea>  <br/><br/>
 
-                  <label for="genre">Genre: </label>
+                  <label>Genre: </label>
                   <textarea className="form-control" type="text" id="genre" name="genre" onChange={songGenreChange} placeholder="Enter Song Genre" value={songGenre}></textarea><br/><br/>
 
-                  <label for="link">Spotify Track ID: </label>
+                  <label>Spotify Track ID: </label>
                   <textarea className="form-control" type="text" id="link" name="link" onChange={songTrackChange} placeholder="Enter Song Track ID from Spotify" value={songTrackID}></textarea><br/><br/>
 
-                  <label for="link">Duration(min:sec) </label>
+                  <label>Duration(seconds) </label>
                   <textarea className="form-control" type="text" id="link" name="link" onChange={songDurationChange} placeholder="Enter Song Duration" value={songDuration}></textarea><br/><br/>
 
                   <button className="btn btn-secondary" type="submit" disabled={songName === "" || songArtist === "" || songGenre === ""}> Submit </button>
