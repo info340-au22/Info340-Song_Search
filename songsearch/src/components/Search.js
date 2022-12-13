@@ -18,13 +18,14 @@ import SearchResults from './SearchResults';
 export function Search(props) {
   const songList = props.songList;
 
+  console.log(songList);
   const ALL_GENRES = Array.from(new Set(songList.map(song => song.genre)));
 
   let [filteredName, setFilteredName] = useState("");
   let [filteredArtist, setFilteredArtist] = useState("");
   let [filteredGenre, setFilteredGenre] = useState("");
 
-  let displayedData = songList; // change this to the real dataset
+  let displayedData = songList;
   if (filteredName !== "") {
     displayedData = displayedData.filter((song) =>
       song.track_name.toLowerCase().includes(filteredName.toLowerCase())

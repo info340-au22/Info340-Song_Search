@@ -12,10 +12,10 @@ const firebaseUIConfig = {
         signInSuccessWithAuthResult: () => {
             return false;
         }
-    } 
+    }
 }
 
-export function Login(Props) {
+export function Login(props) {
     const currentUser = props.currentUser;
     const loginFunction = props.loginCallback;
 
@@ -45,7 +45,7 @@ export function Login(Props) {
     )
 }
 
-{/* 
+{/*
 <main className='container-login'>
             <div className='container-login'>
             <div className="login">

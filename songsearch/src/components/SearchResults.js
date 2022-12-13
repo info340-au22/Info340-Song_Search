@@ -22,8 +22,8 @@ export default function SearchResults(props) {
             <th>Song Title</th>
             <th>Artist Name</th>
             <th>Genre</th>
-            <th>Release Date</th>
-            <th>Link</th>
+            <th>Length</th>
+            <th>Spotify Link</th>
           </tr>
         </thead>
         <tbody>
@@ -34,14 +34,20 @@ export default function SearchResults(props) {
   );
 }
 
+function millisToMinutes(millis) {
+  var min = Math.floor(millis / 60000);
+  var sec = ((millis % 60000) / 1000).toFixed(0);
+  return min + ":" + (sec < 10 ? '0' : '') + sec;
+}
+
 function SongDataRow({ song }) {
   return(
     <tr key={song.track_id}>
         <td> {song.track_name} </td>
         <td> {song.track_artist} </td>
         <td className='OptionalColumn'> {song.genre} </td>
-        <td className='OptionalColumn'> {song.danceability} </td>
+        <td className='OptionalColumn'> {millisToMinutes(song.duration_ms)} </td>
         <td><a href={"https://open.spotify.com/track/"+song.track_id}> Here </a></td>
     </tr>
-)
+  );
 }
