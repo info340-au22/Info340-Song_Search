@@ -152,6 +152,7 @@ body {
 footer {
     bottom: 0;
     width: 100%;
+    min-height: 100px;
     margin-top : 3rem;
     padding-top: 0.5em;
     padding-bottom: 1rem;
