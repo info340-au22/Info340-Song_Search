@@ -8,10 +8,14 @@ export function NewlyUploaded(props) {
     const [ascending, setAscending] = useState(null);
 
     const songList = props.songList;
-    
 
+    let newerSongs = songList.filter((thisSong) => {
+        if (thisSong.newlyUploaded === true) {
+            return thisSong
+        }
+    })
 
-    let sortedData = _.sortBy(songList , [sortByCriteria]);
+    let sortedData = _.sortBy(newerSongs , [sortByCriteria]);
 
     if (sortByCriteria !== null && ascending !== true) {
         sortedData = _.reverse(sortedData);

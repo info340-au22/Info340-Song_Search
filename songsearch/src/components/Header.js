@@ -14,7 +14,12 @@ export function Header(props) {
         </div>
       )
     } else if (location.pathname === "/recent") {
-      return <h1>Browse New Uploaded Songs!</h1>
+      return (
+      <div>
+        <h1>Browse New Uploaded Songs!</h1>
+        <h3> This is a list of songs our sites users have uploaded!</h3>
+      </div>
+      )
     } else if (location.pathname === "/upload") {
       return(
         <div>
