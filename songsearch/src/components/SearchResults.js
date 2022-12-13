@@ -42,7 +42,7 @@ function millisToMinutes(millis) {
 
 function SongDataRow({ song }) {
   return(
-    <tr key={song.track_id}>
+    <tr key={song.key}>
         <td> {song.track_name} </td>
         <td> {song.track_artist} </td>
         <td className='OptionalColumn'> {song.genre} </td>
