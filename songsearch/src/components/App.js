@@ -7,7 +7,7 @@ import { Login } from './Login.js'
 import { Search } from './Search.js';
 import { NewlyUploaded } from './NewlyUploaded.js';
 import {Upload} from './Upload.js';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes, Outlet } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getDatabase, ref, set as firebaseSet, onValue, push as firebasePush } from 'firebase/database';
 
@@ -15,6 +15,9 @@ import { getDatabase, ref, set as firebaseSet, onValue, push as firebasePush } f
 
 export default function App(props) {
   const [songList, SetSongList] = useState([])
+
+  const [loggedIn, setLoginStatus] = useState(false)
+
 
   useEffect(() => {
       const db = getDatabase();
@@ -39,8 +42,8 @@ export default function App(props) {
       }
 
       return cleanup;
-},[])
-console.log(songList)
+  },[])
+
 
   return (
 
@@ -51,14 +54,30 @@ console.log(songList)
       <Routes>
         <Route path="home" element={<HomePage/>} />
         <Route path="search" element={<Search songList={songList}/>} />
-        <Route path="login" element={<Login/>} /> 
+        <Route path="login" element={<Login setLoginStatus={setLoginStatus}/>} /> 
         <Route path="recent" element={<NewlyUploaded songList={songList} />} />
-        <Route path="upload" element={<Upload/>} />
+
+        <Route element={<ProtectedPage loggedIn={loggedIn} />}>
+          <Route path="upload" element={<Upload/>} />
+        </Route>
+
         <Route path='/*' element={<Navigate to="/home"/>} />
       </Routes>
       <Footer />
     </div>
   );
+}
+
+
+function ProtectedPage(props) {
+  const loggedIn = props.loggedIn;
+  //...determine if user is logged in
+  if(loggedIn === false) { //if no user, send to sign in
+    return <Navigate to="/login" />
+  }
+  else { //otherwise, show the child route content
+    return <Outlet />
+  }
 }
 
 

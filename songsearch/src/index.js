@@ -9,8 +9,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { initializeApp } from "firebase/app";
 
 
-import { initializeApp } from "firebase/app";
-
 const firebaseConfig = {
   apiKey: "AIzaSyA2LsF39A-ub9xCXJzTkzNIIwJfAuKDw9A",
   authDomain: "song-search-804b5.firebaseapp.com",

@@ -8,12 +8,20 @@ export function NewlyUploaded(props) {
     const [ascending, setAscending] = useState(null);
 
     const songList = props.songList;
- 
+    
+
 
     let sortedData = _.sortBy(songList , [sortByCriteria]);
+
     if (sortByCriteria !== null && ascending !== true) {
         sortedData = _.reverse(sortedData);
     }
+
+    function millisToMinutes(millis) {
+        var min = Math.floor(millis / 60000);
+        var sec = ((millis % 60000) / 1000).toFixed(0);
+        return min + ":" + (sec < 10 ? '0' : '') + sec;
+      }
 
 
     const displaySongs = sortedData.map((song) => {
@@ -22,7 +30,7 @@ export function NewlyUploaded(props) {
                 <td> {song.track_name} </td>
                 <td> {song.track_artist} </td>
                 <td className='OptionalColumn'> {song.genre} </td>
-                <td className='OptionalColumn'> {song.danceability} </td>
+                <td className='OptionalColumn'> {millisToMinutes(song.duration_ms)} </td>
                 <td><a href={"https://open.spotify.com/track/"+song.track_id}> Here </a></td>
             </tr>
         )
@@ -62,8 +70,8 @@ export function NewlyUploaded(props) {
                                 <SortButton name="genre" onClick={handleClick} active={sortByCriteria} ascending={ascending}/>
                             </th>
                             <th className='OptionalColumn'>
-                                Dancability
-                                <SortButton name="dancability" onClick={handleClick} active={sortByCriteria} ascending={ascending}/>
+                                Length
+                                <SortButton name="duration_ms" onClick={handleClick} active={sortByCriteria} ascending={ascending}/>
                             </th>
                             <th className='py-3'>Spotify Link</th>
                         </tr>

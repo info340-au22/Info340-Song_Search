@@ -18,6 +18,7 @@ const firebaseUIConfig = {
 export function Login(props) {
     const currentUser = props.currentUser;
     const loginFunction = props.loginCallback;
+    const setLoginStatus = props.setLoginStatus;
 
     // authenticator
     const auth = getAuth();
