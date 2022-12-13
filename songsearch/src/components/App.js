@@ -16,12 +16,12 @@ import { getDatabase, ref, set as firebaseSet, onValue, push as firebasePush } f
 export default function App(props) {
   const [songList, SetSongList] = useState([])
 
-  const [loggedIn, setLoginStatus] = useState(false)
+  const [loggedIn, setLoginStatus] = useState(true)
 
+  const db = getDatabase();
+  const songReference = ref(db, "Songs");
 
   useEffect(() => {
-      const db = getDatabase();
-      const songReference = ref(db, "Songs");
 
       const offFunction = onValue(songReference, (snapshot) => {
       const songData = snapshot.val();

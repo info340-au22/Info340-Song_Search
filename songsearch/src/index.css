@@ -202,6 +202,13 @@ footer {
 
 label {
   color: white;
+  font-size: 3rem;
+}
+
+textarea {
+  width: 400px;
+  height: 40px;
+
 }
 
 /* Login CSS*/
@@ -267,6 +274,7 @@ label {
   padding: 0 25px;
   vertical-align: middle;
 }
+
 
 @media (max-width: 992px) {
   .OptionalColumn{
