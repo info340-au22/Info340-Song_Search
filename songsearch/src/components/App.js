@@ -106,7 +106,10 @@ function LoggedIn(props) {
   if(currentUser != null) {
     return(
     <div>
-      <h1 className="loggedIn"> Currently Logged in as + {currentUser} </h1>
+      <h1 className="loggedIn"> Currently Logged in as {currentUser} </h1>
+      <div className="d-grid gap-2 no_underline">
+        <button className="btn btn-lg btn-warning logOutButton" type="submit" onClick={handleSignOut}> Log Out </button>
+      </div>
     </div> 
     )
   } else {
@@ -114,4 +117,9 @@ function LoggedIn(props) {
   }
 
 }
+
+const handleSignOut = () => {
+  console.log("signing out");
+  signOut(getAuth())
+}  
 

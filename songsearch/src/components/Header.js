@@ -1,4 +1,3 @@
-import { getAuth, signOut } from 'firebase/auth';
 import React from 'react';
 import { NavLink, useLocation} from 'react-router-dom';
 import {Burger} from './Burger.js';
@@ -6,7 +5,6 @@ import {Burger} from './Burger.js';
 
 export function Header(props) {
   const location = useLocation();
-  const currentUser = props.currentUser;
 
   function displayHeaderText() {
     if (location.pathname === "/home") {
@@ -42,10 +40,6 @@ export function Header(props) {
     }
     }
 
-    const handleSignOut = (event) => {
-      console.log("signing out");
-      signOut(getAuth())
-    }  
 
   return (
     <header>
@@ -61,12 +55,8 @@ export function Header(props) {
               <li><NavLink to="/recent">Newly Uploaded</NavLink></li>
               <li><NavLink to="/upload">Upload your Music</NavLink></li>
               <li><NavLink to="/search">Search</NavLink></li>
-              {currentUser.userId && 
-                <li><button onClick={handleSignOut}>Sign Out</button></li>
-              }
-              {!currentUser.userId &&
-                <li><NavLink to="/login"> Login </NavLink></li>
-              }
+              <li><NavLink to="/login"> Login </NavLink></li>
+             
             </ul>
           </nav>
       {displayHeaderText()}
