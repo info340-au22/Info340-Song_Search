@@ -103,9 +103,6 @@ table {
   border-radius:6px;
 }
 
-.search {
-  max-width: 35%;
-}
 
 tr {
   padding-top: 0.5rem;
@@ -319,6 +316,10 @@ textarea {
 
   }
 
+  .search {
+    max-width: 35%;
+  }
+  
   nav {
 
       top: 0;

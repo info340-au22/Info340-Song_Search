@@ -26,7 +26,6 @@ export default function App(props) {
 
       const objKeys = Object.keys(songData);
 
-
       const songArray = objKeys.map((keyString) => {
           const theMessageObj = songData[keyString];
           theMessageObj.key = keyString;
