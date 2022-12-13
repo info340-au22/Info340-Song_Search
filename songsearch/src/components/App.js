@@ -10,19 +10,18 @@ import {Upload} from './Upload.js';
 import { Navigate, Route, Routes, Outlet } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getDatabase, ref, set as firebaseSet, onValue, push as firebasePush } from 'firebase/database';
-
+import { getAuth, signOut, onAuthStateChanged } from 'firebase/auth'
 
 
 export default function App(props) {
   const [songList, SetSongList] = useState([])
-
-  const [loggedIn, setLoginStatus] = useState(true)
+  const [loggedIn, setLoginStatus] = useState(false)
+  const currentUser = props.currentUser;
 
   const db = getDatabase();
   const songReference = ref(db, "Songs");
 
   useEffect(() => {
-
       const offFunction = onValue(songReference, (snapshot) => {
       const songData = snapshot.val();
 
@@ -36,6 +35,23 @@ export default function App(props) {
       })
       SetSongList(songArray)
       })
+  
+      // authenticator
+      const auth = getAuth();
+      
+      onAuthStateChanged(auth, (firebaseUser) => {
+          if(firebaseUser) { 
+              console.log('logged in', firebaseUser.displayName);
+              currentUser(firebaseUser)
+              setLoginStatus(true)
+          }
+          else {
+              signOut(auth)
+                  .catch(err => console.log(err)); //log any errors for debugging 
+              console.log('logged out');
+          }
+      });
+
 
       function cleanup() {
       offFunction();
